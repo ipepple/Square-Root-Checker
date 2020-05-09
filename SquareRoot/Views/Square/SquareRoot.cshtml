@@ -1,0 +1,39 @@
+@{
+     ViewData["Title"] = "Square Root Checker";
+}
+
+<div class="text-center">
+
+<h1>Welcome to the Square Root Checker</h1>
+
+<form asp-controller="square" asp-action="SquareRoot" method="POST">
+    <input type="number" placeholder="First Number" name="firstNumber"/>
+    <input type="number" placeholder="Second Number" name="secondNumber"/>
+    <button type="submit">Check Square Root</button>
+</form>
+
+<div>
+@{
+    if (ViewBag.Result != null)
+    {
+        <div class="text-center">
+            @{
+                if (ViewBag.sqr_Root > ViewBag.sqr_Root1)
+                {
+                    <h2>The number @ViewBag.num1 with square root @ViewBag.sqr_Root has a higher square root than the number @ViewBag.num2 with square root @ViewBag.num2</h2>
+                }
+                else if (ViewBag.sqr_Root1 > ViewBag.sqr_Root)
+                {
+                    <h2>The number @ViewBag.num2 with square root @ViewBag.sqr_Root1 has a higher square root than the number @ViewBag.num1 with square root @ViewBag.sqr_Root</h2>
+                }
+                else if (ViewBag.sqr_Root1 == ViewBag.sqr_Root)
+                {
+                    <h2>The number @ViewBag.num1 with Square root @ViewBag.sqr_Root has same square as the number @ViewBag.num2 with square root @ViewBag.sqr_Root1</h2>
+                    <p>You may please enter another value</p>
+                }
+            }
+            
+        </div>            
+    }
+}
+</div>
